@@ -1,4 +1,5 @@
 ;; # 🎄 Advent of Code: Day 2
+^{:nextjournal.clerk/visibility {:code :hide}}
 (ns advent-of-code.day-02
   (:require [nextjournal.clerk :as clerk]
             [advent-of-code.index :refer [badge]]
