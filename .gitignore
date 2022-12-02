@@ -4,6 +4,7 @@
 .clerk/
 .cpcache/
 .lsp/
+.portal/
 node_modules
 notebooks/scratch*
 /public/js/
