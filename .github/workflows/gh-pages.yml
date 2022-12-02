@@ -51,6 +51,8 @@ jobs:
           key: cljdeps-${{ hashFiles('deps.edn') }}
           restore-keys: cljdeps-
       - name: Build Clerk Site
+        env: 
+          AOC_SESSION_TOKEN: ${{secrets.AOC_SESSION_TOKEN}}
         run: clojure -M:nextjournal/clerk
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
