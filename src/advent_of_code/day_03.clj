@@ -11,9 +11,7 @@
                       line-seq))
 
 (def part-1 (->> input-lines
-                 (map (fn [line]
-                        (let [at (/ (.length line) 2)]
-                          [(set (subs line 0 at)) (set (subs line at))])))
+                 (map #(map set (split-at (/ (count %) 2) %)))
                  (map #(apply intersection %))
                  (map (comp #(if (>= % 97)
                                (- % 96)
@@ -24,7 +22,7 @@
 
 (def part-2 (->> input-lines
                  (partition 3)
-                 (map (comp #(apply intersection %) #(map set %))) 
+                 (map (comp #(apply intersection %) #(map set %)))
                  (map (comp #(if (>= % 97)
                                (- % 96)
                                (- % 38))
