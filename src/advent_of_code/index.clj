@@ -6,7 +6,8 @@
             [clojure.string :as str]
             [nextjournal.clerk :as clerk]
             [hickory.core :as h]
-            [hickory.select :as s]))
+            [hickory.select :as s]
+            [hiccup2.core :refer [html]]))
 
 (defn badge
   [year]
@@ -59,7 +60,7 @@
 
 ^::clerk/no-cache
 (let [curr-badge (badge 2022)]
-  (spit "badges/badge.svg" (clerk/html curr-badge))
+  (spit "badges/badge.svg" (html curr-badge))
   (clerk/html
    [:article
     [:h2 "Solutions"]
