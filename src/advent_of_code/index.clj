@@ -22,7 +22,7 @@
                          first))
                   "0*")
         title (str year ": " stars)]
-    [:svg {:xmlns "http://www.w3.org/2000/svg", :xmlns:xlink "http://www.w3.org/1999/xlink", :viewbox "0,0,85,20", :role "img", :aria-label title}
+    [:svg {:xmlns "http://www.w3.org/2000/svg", :xmlns:xlink "http://www.w3.org/1999/xlink", :width "85" :height "20", :role "img", :aria-label title}
      [:title title]
      [:lineargradient {:id "s", :x2 "0", :y2 "100%"}
       [:stop {:offset "0", :stop-color "#aaa", :stop-opacity ".2"}]
