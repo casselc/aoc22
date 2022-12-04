@@ -58,11 +58,13 @@
 {:nextjournal.clerk/visibility {:result :show}}
 
 ^::clerk/no-cache
-(clerk/html
- [:article
-  [:h2 "Solutions"]
-  (into [:ul] (mapv (fn [path]
-                      (when-let [day (second (re-matches #".*day_(\d+).clj" path))]
-                        [:li [:a {:href (clerk/doc-url path)} "Day " day]])) (build-paths)))
-  [:footer (badge 2022)]])
+(let [curr-badge (badge 2022)]
+  (spit "badges/badge.svg" (clerk/html curr-badge))
+  (clerk/html
+   [:article
+    [:h2 "Solutions"]
+    (into [:ul] (mapv (fn [path]
+                        (when-let [day (second (re-matches #".*day_(\d+).clj" path))]
+                          [:li [:a {:href (clerk/doc-url path)} "Day " day]])) (build-paths)))
+    [:footer curr-badge]]))
 
