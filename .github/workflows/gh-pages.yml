@@ -53,7 +53,7 @@ jobs:
       - name: Build Clerk Site
         env: 
           AOC_SESSION_TOKEN: ${{secrets.AOC_SESSION_TOKEN}}
-        run: clojure -M:nextjournal/clerk
+        run: clojure -M:nextjournal/clerk :git/sha ${{github.sha}} :git/url "https://github.com/"${{github.repository}}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
