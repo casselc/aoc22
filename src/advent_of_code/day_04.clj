@@ -23,3 +23,7 @@
 (def part-2 (->> set-pairs
                  (filter (fn [[s1 s2]] (seq (intersection s1 s2))))
                  count))
+
+(defn overlaps? [[a b c d]]
+  (and (<= a d) (<= c b)))
+(overlaps? [1 3 2 4])
